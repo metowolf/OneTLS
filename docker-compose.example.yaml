@@ -1,0 +1,56 @@
+version: '3.2'
+
+services:
+  nginx:
+    image: "${NGINX_VERSION}"
+    command: ["sh", "/start.sh"]
+    depends_on:
+      - snell
+      - shadowsocks
+      - gost
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - ./script/nginx/start.sh:/start.sh
+      - ./log:/var/log/nginx
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./etc/nginx/conf.d:/etc/nginx/conf.d
+    environment:
+      NGINX_DOMAIN: ${NGINX_DOMAIN}
+      SNELL_DOMAIN: ${SNELL_DOMAIN}
+      SHADOWSOCKS_DOMAIN: ${SHADOWSOCKS_DOMAIN}
+      GOST_DOMAIN: ${GOST_DOMAIN}
+      ENABLE_CRONTAB: "true"
+      TZ: ${ONETLS_TZ}
+    restart: always
+  
+  snell:
+    image: "${SNELL_VERSION}"
+    environment:
+      SERVER_PORT: 443
+      PSK: ${SNELL_PASSWORD}
+      OBFS: tls
+    restart: always
+
+  shadowsocks:
+    image: "${SHADOWSOCKS_VERSION}"
+    environment:
+      SERVER_PORT: 443
+      DNS: ${ONETLS_DNS}
+      PASSWORD: ${SHADOWSOCKS_PASSWORD}
+      METHOD: ${SHADOWSOCKS_METHOD}
+      OBFS: tls
+    restart: always
+
+  gost:
+    image: "${GOST_VERSION}"
+    environment: 
+      SERVER_PORT: 443
+      DNS: ${ONETLS_DNS}
+      PROTOCOL: socks5
+      TRANSPORT: tls
+      USERNAME: ${GOST_USERNAME}
+      PASSWORD: ${GOST_PASSWORD}
+    restart: always
