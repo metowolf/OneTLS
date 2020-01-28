@@ -213,20 +213,20 @@ _install_setup_password() {
 _install_setup_env() {
     cp ${onetls_dir}/.env.example /tmp/onetls.env
     # global
-    sed -i "" "s@^ONETLS_DNS=.*@ONETLS_DNS=${ONETLS_DNS}@g" /tmp/onetls.env
+    sed -i "s@^ONETLS_DNS=.*@ONETLS_DNS=${ONETLS_DNS}@g" /tmp/onetls.env
     # nginx
-    sed -i "" "s@^NGINX_DOMAIN=.*@NGINX_DOMAIN=${NGINX_DOMAIN}@g" /tmp/onetls.env
+    sed -i "s@^NGINX_DOMAIN=.*@NGINX_DOMAIN=${NGINX_DOMAIN}@g" /tmp/onetls.env
     # shadowsocks
-    sed -i "" "s@^SHADOWSOCKS_METHOD=.*@SHADOWSOCKS_METHOD=${SHADOWSOCKS_METHOD}@g" /tmp/onetls.env
-    sed -i "" "s@^SHADOWSOCKS_PASSWORD=.*@SHADOWSOCKS_PASSWORD=${SHADOWSOCKS_PASSWORD}@g" /tmp/onetls.env
-    sed -i "" "s@^SHADOWSOCKS_DOMAIN=.*@SHADOWSOCKS_DOMAIN=${SHADOWSOCKS_DOMAIN}@g" /tmp/onetls.env
+    sed -i "s@^SHADOWSOCKS_METHOD=.*@SHADOWSOCKS_METHOD=${SHADOWSOCKS_METHOD}@g" /tmp/onetls.env
+    sed -i "s@^SHADOWSOCKS_PASSWORD=.*@SHADOWSOCKS_PASSWORD=${SHADOWSOCKS_PASSWORD}@g" /tmp/onetls.env
+    sed -i "s@^SHADOWSOCKS_DOMAIN=.*@SHADOWSOCKS_DOMAIN=${SHADOWSOCKS_DOMAIN}@g" /tmp/onetls.env
     # snell
-    sed -i "" "s@^SNELL_PASSWORD=.*@SNELL_PASSWORD=${SNELL_PASSWORD}@g" /tmp/onetls.env
-    sed -i "" "s@^SNELL_DOMAIN=.*@SNELL_DOMAIN=${SNELL_DOMAIN}@g" /tmp/onetls.env
+    sed -i "s@^SNELL_PASSWORD=.*@SNELL_PASSWORD=${SNELL_PASSWORD}@g" /tmp/onetls.env
+    sed -i "s@^SNELL_DOMAIN=.*@SNELL_DOMAIN=${SNELL_DOMAIN}@g" /tmp/onetls.env
     # gost
-    sed -i "" "s@^GOST_USERNAME=.*@GOST_USERNAME=${GOST_USERNAME}@g" /tmp/onetls.env
-    sed -i "" "s@^GOST_PASSWORD=.*@GOST_PASSWORD=${GOST_PASSWORD}@g" /tmp/onetls.env
-    sed -i "" "s@^GOST_DOMAIN=.*@GOST_DOMAIN=${GOST_DOMAIN}@g" /tmp/onetls.env
+    sed -i "s@^GOST_USERNAME=.*@GOST_USERNAME=${GOST_USERNAME}@g" /tmp/onetls.env
+    sed -i "s@^GOST_PASSWORD=.*@GOST_PASSWORD=${GOST_PASSWORD}@g" /tmp/onetls.env
+    sed -i "s@^GOST_DOMAIN=.*@GOST_DOMAIN=${GOST_DOMAIN}@g" /tmp/onetls.env
     mv /tmp/onetls.env ${onetls_dir}/.env
     cp ${onetls_dir}/docker-compose.example.yaml ${onetls_dir}/docker-compose.yaml
 }
