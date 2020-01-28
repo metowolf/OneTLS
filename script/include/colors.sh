@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo=echo
 for cmd in echo /bin/echo; do

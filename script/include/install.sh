@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 _install_check_command() {
     if ! command_exists docker; then

@@ -1,45 +1,45 @@
-#!/bin/sh
+#!/bin/bash
 
 _info_global() {
-    echo ""
-    echo "\t${BOLD}Global${RESET}"
-    echo "\t-------------"
-    echo "\tserver:   ${BOLD}${ONETLS_IP}:443${RESET}"
-    echo "\tDNS:      ${BOLD}${ONETLS_DNS}${RESET}"
-    echo "\tObfs url: ${BOLD}${NGINX_DOMAIN}${RESET}"
+    echo -e ""
+    echo -e "\t${BOLD}Global${RESET}"
+    echo -e "\t-------------"
+    echo -e "\tserver:   ${BOLD}${ONETLS_IP}:443${RESET}"
+    echo -e "\tDNS:      ${BOLD}${ONETLS_DNS}${RESET}"
+    echo -e "\tObfs url: ${BOLD}${NGINX_DOMAIN}${RESET}"
 }
 
 _info_shadowsocks() {
     if [[ ! ${SHADOWSOCKS_DOMAIN} =~ ^_. ]]; then
-        echo ""
-        echo "\t${BOLD}Shadowsocks${RESET}"
-        echo "\t-------------"
-        echo "\tmethod:    ${BOLD}${SHADOWSOCKS_METHOD}${RESET}"
-        echo "\tpassword:  ${BOLD}${SHADOWSOCKS_PASSWORD}${RESET}"
-        echo "\tobfs type: ${BOLD}tls${RESET}"
-        echo "\tobfs url:  ${BOLD}${SHADOWSOCKS_DOMAIN}${RESET}"
+        echo -e ""
+        echo -e "\t${BOLD}Shadowsocks${RESET}"
+        echo -e "\t-------------"
+        echo -e "\tmethod:    ${BOLD}${SHADOWSOCKS_METHOD}${RESET}"
+        echo -e "\tpassword:  ${BOLD}${SHADOWSOCKS_PASSWORD}${RESET}"
+        echo -e "\tobfs type: ${BOLD}tls${RESET}"
+        echo -e "\tobfs url:  ${BOLD}${SHADOWSOCKS_DOMAIN}${RESET}"
     fi
 }
 
 _info_snell() {
     if [[ ! ${SNELL_DOMAIN} =~ ^_. ]]; then
-        echo ""
-        echo "\t${BOLD}Snell${RESET}"
-        echo "\t-------------"
-        echo "\tpsk:       ${BOLD}${SNELL_PASSWORD}${RESET}"
-        echo "\tobfs type: ${BOLD}tls${RESET}"
-        echo "\tobfs url:  ${BOLD}${SNELL_DOMAIN}${RESET}"
+        echo -e ""
+        echo -e "\t${BOLD}Snell${RESET}"
+        echo -e "\t-------------"
+        echo -e "\tpsk:       ${BOLD}${SNELL_PASSWORD}${RESET}"
+        echo -e "\tobfs type: ${BOLD}tls${RESET}"
+        echo -e "\tobfs url:  ${BOLD}${SNELL_DOMAIN}${RESET}"
     fi
 }
 
 _info_gost() {
     if [[ ! ${GOST_DOMAIN} =~ ^_. ]]; then
-        echo ""
-        echo "\t${BOLD}SOCKS5-TLS${RESET}"
-        echo "\t-------------"
-        echo "\tusername:  ${BOLD}${GOST_USERNAME}${RESET}"
-        echo "\tpassword:  ${BOLD}${GOST_PASSWORD}${RESET}"
-        echo "\ttls sni:   ${BOLD}${GOST_DOMAIN}${RESET}"
+        echo -e ""
+        echo -e "\t${BOLD}SOCKS5-TLS${RESET}"
+        echo -e "\t-------------"
+        echo -e "\tusername:  ${BOLD}${GOST_USERNAME}${RESET}"
+        echo -e "\tpassword:  ${BOLD}${GOST_PASSWORD}${RESET}"
+        echo -e "\ttls sni:   ${BOLD}${GOST_DOMAIN}${RESET}"
     fi
 }
 
@@ -62,5 +62,5 @@ menu_info() {
     _info_shadowsocks
     _info_snell
     _info_gost
-    echo ""
+    echo -e ""
 }

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . ${onetls_dir}/script/include/colors.sh
 . ${onetls_dir}/script/include/copyright.sh
@@ -8,9 +8,9 @@ command_exists() {
 }
 
 warning() {
-	echo "${YELLOW}WARN${RESET}:\t$@" >&2
+	echo -e "${YELLOW}WARN${RESET}:\t$@" >&2
 }
 
 error() {
-	echo "${RED}ERROR${RESET}:\t$@" >&2
+	echo -e "${RED}ERROR${RESET}:\t$@" >&2
 }

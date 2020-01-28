@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 _network_usage_detail() {
-    echo "\t${BOLD}$1${RESET}"
-    echo "\t-------------"
+    echo -e "\t${BOLD}$1${RESET}"
+    echo -e "\t-------------"
     count=`cat ${onetls_dir}/log/onetls.access.log | grep "$2" | wc -l | awk '{print $1}'`
     if [ "$count" = "0" ]; then
-        echo "\tempty"
+        echo -e "\tempty"
     else
         (
             printf "IP sent received \n"; \
@@ -16,7 +16,7 @@ _network_usage_detail() {
             | sort -k2 -nr;
         ) | column -t -s $' ' | awk '$0="\t"$0'
     fi
-    echo ""
+    echo -e ""
 }
 
 menu_network_usage() {
@@ -26,7 +26,7 @@ menu_network_usage() {
     fi
     source ${onetls_dir}/.env
     if [ -f ${onetls_dir}/log/onetls.access.log ]; then
-        echo ""
+        echo -e ""
         _network_usage_detail "Shadowsocks" " $SHADOWSOCKS_DOMAIN"
         _network_usage_detail "Snell" " $SNELL_DOMAIN"
         _network_usage_detail "SOCKS-TLS" " $GOST_DOMAIN"

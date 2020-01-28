@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 pushd `dirname "$0"` > /dev/null
 onetls_dir=`pwd`
@@ -10,22 +10,22 @@ onetls_dir=`pwd`
 
 copyright
 while :;do
-    echo ""
+    echo -e ""
     if [ ! -f ${onetls_dir}/.env ]; then
-        echo "\t${GREEN}1.${RESET} Install OneTLS"
+        echo -e "\t${GREEN}1.${RESET} Install OneTLS"
     else
-        echo "\t${GREEN}1.${RESET} ReInstall OneTLS"
+        echo -e "\t${GREEN}1.${RESET} ReInstall OneTLS"
     fi
-    echo "\t-----"
-    echo "\t${GREEN}2.${RESET} Start OneTLS"
-    echo "\t${GREEN}3.${RESET} Stop OneTLS"
-    echo "\t${GREEN}4.${RESET} Restart OneTLS"
-    echo "\t-----"
-    echo "\t${GREEN}5.${RESET} Show OneTLS Config"
-    echo "\t${GREEN}6.${RESET} Show Network Usage Today"
-    echo "\t-----"
-    echo "\t${GREEN}q.${RESET} Exit"
-    echo ""
+    echo -e "\t-----"
+    echo -e "\t${GREEN}2.${RESET} Start OneTLS"
+    echo -e "\t${GREEN}3.${RESET} Stop OneTLS"
+    echo -e "\t${GREEN}4.${RESET} Restart OneTLS"
+    echo -e "\t-----"
+    echo -e "\t${GREEN}5.${RESET} Show OneTLS Config"
+    echo -e "\t${GREEN}6.${RESET} Show Network Usage Today"
+    echo -e "\t-----"
+    echo -e "\t${GREEN}q.${RESET} Exit"
+    echo -e ""
     read -e -p "Please input the correct option: " Number
     if [[ ! "${Number}" =~ ^[1-6,q]$ ]]; then
         error "input error! Please only input 1~6 and q"
